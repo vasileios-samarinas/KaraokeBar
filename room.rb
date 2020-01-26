@@ -17,7 +17,7 @@ def songs_count
 end
 
 def add_song(song)
-@songs.push(song)
+  @songs.push(song)
 end
 
 end

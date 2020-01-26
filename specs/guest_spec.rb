@@ -17,27 +17,27 @@ def setup
 end
 
 def test_return_name
-assert_equal("Rita",@guest1.name)
+  assert_equal("Rita",@guest1.name)
 end
 
 def test_return_group_of_people
-assert_equal(5,@guest1.group_of_people)
+  assert_equal(5,@guest1.group_of_people)
 end
 
 def test_return_wallet
-assert_equal(20,@guest2.wallet)
+  assert_equal(20,@guest2.wallet)
 end
 
 def test_guest_can_afford_room_fee__true
-total_cost=@room1.cost+@entrance_fee
-result=@guest2.sufficient_funds?(total_cost)
-assert_equal(true,result)
+  total_cost=@room1.cost+@entrance_fee
+  result=@guest2.sufficient_funds?(total_cost)
+  assert_equal(true,result)
 end
 
 def test_guest_can_afford_room_fee__false
-total_cost=@room1.cost+@entrance_fee
-result=@guest1.sufficient_funds?(total_cost)
-assert_equal(false,result)
+  total_cost=@room1.cost+@entrance_fee
+  result=@guest1.sufficient_funds?(total_cost)
+  assert_equal(false,result)
 end
 
 end

@@ -11,12 +11,12 @@ end
 
 def check_in_room(guest,room_name)
   room=find_room_from_the_bar(room_name)
-  if room.availability == true
+    if room.availability == true
   room.occupancy = guest
   room.availability = false
-  else
+    else
   return "Select another room"
-  end
+    end
 end
 
 def check_out_room(room_name)
@@ -27,11 +27,11 @@ end
 
 
 def find_room_from_the_bar(name_of_room)
-      for room in @rooms
-        if room.name==name_of_room
-          return room
-        end
-      end
+  for room in @rooms
+    if room.name==name_of_room
+      return room
+    end
+  end
 end
 
 
