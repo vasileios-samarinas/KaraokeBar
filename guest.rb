@@ -12,4 +12,10 @@ def sufficient_funds?(total_cost)
   return wallet >= total_cost
 end
 
+def pay_room(total_cost)
+  if sufficient_funds?(total_cost)
+    @wallet -= total_cost
+  end
+end
+
 end

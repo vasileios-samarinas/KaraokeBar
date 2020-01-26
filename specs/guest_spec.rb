@@ -40,4 +40,11 @@ def test_guest_can_afford_room_fee__false
   assert_equal(false,result)
 end
 
+def test_guest_gets_room_decrease_wallet
+total_cost= @room1.cost + @entrance_fee
+@guest2.pay_room(total_cost)
+assert_equal(7,@guest2.wallet)
+end
+
+
 end

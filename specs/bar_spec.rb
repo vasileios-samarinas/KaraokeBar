@@ -33,8 +33,11 @@ end
 def test_check_in_room
   room=@bar1.find_room_from_the_bar("Metalroom")
   @bar1.check_in_room(@guest2,room.name)
+  total_cost= @room1.cost + @bar1.entrance_fee
   assert_equal(false,room.availability)
   assert_equal(@guest2,room.occupancy)
+  assert_equal(7,@guest2.wallet)
+  assert_equal(113,@bar1.till)
 end
 
 def test_check_in_room__if_room_not_available
