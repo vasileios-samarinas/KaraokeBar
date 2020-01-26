@@ -9,7 +9,7 @@ require_relative('../bar.rb')
 class TestGuest<Minitest::Test
 
 def setup
-@guest1=Guest.new("Rita",5,8)
+@guest1=Guest.new("Rita",5,7)
 @guest2=Guest.new("Mike",5,20)
 @guest3=Guest.new("Calum",8,20)
 @room1=Room.new("Poproom",5,10,["Abba-Dancing Queen"])
@@ -28,10 +28,16 @@ def test_return_wallet
 assert_equal(20,@guest2.wallet)
 end
 
-def test_guest_can_afford_room_fee
+def test_guest_can_afford_room_fee__true
 total_cost=@room1.cost+@entrance_fee
 result=@guest2.sufficient_funds?(total_cost)
 assert_equal(true,result)
+end
+
+def test_guest_can_afford_room_fee__false
+total_cost=@room1.cost+@entrance_fee
+result=@guest1.sufficient_funds?(total_cost)
+assert_equal(false,result)
 end
 
 end
