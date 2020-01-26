@@ -30,5 +30,27 @@ result= @bar1.find_room_from_the_bar("Metalroom")
 assert_equal(@room2,result)
 end
 
+def test_check_in_room
+room=@bar1.find_room_from_the_bar("Metalroom")
+@bar1.check_in_room(@guest2,room.name)
+assert_equal(false,room.availability)
+assert_equal(@guest2,room.occupancy)
+end
+
+def test_check_in_room__if_room_not_available
+room=@bar1.find_room_from_the_bar("Metalroom")
+room.availability= false
+result=@bar1.check_in_room(@guest2,room.name)
+assert_equal(false,room.availability)
+assert_equal("Select another room", result)
+end
+
+def test_check_out_room
+room=@bar1.find_room_from_the_bar("Metalroom")
+result=@bar1.check_out_room(room.name)
+assert_equal(true,room.availability)
+assert_nil(room.occupancy)
+end
+
 
 end

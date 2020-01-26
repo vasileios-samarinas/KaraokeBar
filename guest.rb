@@ -8,5 +8,8 @@ def initialize(name,group_of_people,wallet)
   @wallet=wallet
 end
 
+def sufficient_money?(room)
+  return wallet >= room.cost()
+end
 
 end

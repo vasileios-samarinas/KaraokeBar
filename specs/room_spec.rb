@@ -31,5 +31,10 @@ def test_return_room_cost
 assert_equal(10,@room1.cost)
 end
 
+def test_add_song_in_a_room
+new_song="Iron Maiden-Fear of the dark"
+@room1.add_song(new_song)
+assert_equal(2,@room1.songs.count)
+end
 
 end
