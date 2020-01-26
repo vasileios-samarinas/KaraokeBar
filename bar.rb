@@ -24,10 +24,14 @@ end
 
 def check_out_room(room_name)
   room=find_room_from_the_bar(room_name)
+  total_cost=room.cost
+  if room.occupancy.sufficient_funds?(total_cost) == true
+  room.occupancy.pay_room(total_cost)
+  receive_payment(total_cost)
   room.availability=true
   room.occupancy = nil
 end
-
+end
 
 def find_room_from_the_bar(name_of_room)
   for room in @rooms
