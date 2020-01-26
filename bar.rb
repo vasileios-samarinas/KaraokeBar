@@ -1,11 +1,12 @@
 class Bar
 
-attr_accessor :name,:till,:rooms
+attr_accessor :name,:till,:rooms,:entrance_fee
 
-def initialize(name,till,rooms)
+def initialize(name,till,rooms,entrance_fee)
   @name = name
   @till= till
   @rooms=rooms
+  @entrance_fee=entrance_fee
 end
 
 def check_in_room(guest,room_name)
@@ -32,8 +33,6 @@ def find_room_from_the_bar(name_of_room)
         end
       end
 end
-
-
 
 
 end

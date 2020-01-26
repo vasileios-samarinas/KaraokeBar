@@ -14,7 +14,7 @@ def setup
   @room3=Room.new("Danceroom",4,15,["Britney Spears-Crazy"])
   @guest1=Guest.new("Rita",5,8)
   @guest2=Guest.new("Mike",5,20)
-  @bar1=Bar.new("Karaoke Paradise",100,[@room1,@room2,@room3])
+  @bar1=Bar.new("Karaoke Paradise",100,[@room1,@room2,@room3],3)
 end
 
 def test_return_name
@@ -50,6 +50,10 @@ room=@bar1.find_room_from_the_bar("Metalroom")
 result=@bar1.check_out_room(room.name)
 assert_equal(true,room.availability)
 assert_nil(room.occupancy)
+end
+
+def test_entrance_fee
+assert_equal(3,@entrance_fee)
 end
 
 
