@@ -11,9 +11,12 @@ end
 
 def check_in_room(guest,room_name)
   room=find_room_from_the_bar(room_name)
-    if room.availability == true
+  total_cost=@entrance_fee
+    if room.availability == true && guest.sufficient_funds?(total_cost) == true
   room.occupancy = guest
   room.availability = false
+  guest.pay_room(total_cost)
+  receive_payment(total_cost)
     else
   return "Select another room"
     end
@@ -34,5 +37,8 @@ def find_room_from_the_bar(name_of_room)
   end
 end
 
+def receive_payment(total_cost)
+  return @till+=total_cost
+  end
 
 end
